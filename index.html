@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+	<meta charset = "UTF-8">
+    <p>количество смен</p>
+ 	<input id="num1"/>
+ <button onclick="func()">enter...</button>
+
+<p>ковид 1 час - 797 (грос) </br>
+ ковид 1 час - 693.39 </br>
+  рутина 1 час - 507 (грос) </br>
+   рутина 1 час - 441 </p>
+
+<p> количество отработанных часов часов </p>  <p id="result1"></p>
+<p> зп ковид до понижения зп </p>
+  <p id="result2"></p>
+<p> количество ковидных часов </p>
+  <p id="result3"></p>
+<p> ковидные выплаты (грос) </p>
+  <p id="result4"></p>
+<p> ковидные выплаты </p>
+  <p id="result5"></p>
+<p> часы рутина </p>
+  <p id="result6"></p>
+<p> рутина выплаты (грос) </p>
+  <p id="result7"></p>
+<p> рутина выплаты </p>
+  <p id="result8"></p>
+<p> сумма (грос) </p>
+  <p id="result9"></p>
+<p> сумма </p>
+  <p id="result10"></p>
+<p> на какой процент упала зп </p>
+  <p id="result11"></p>
+
+ <script>
+    function func(){
+          var num1 = Number(document.getElementById("num1").value);
+          var num2 = Number(797);		//зп ковид 1 час 797 (грос)
+          var num3 = Number(693.39);	//зп ковид 1 час 693.39
+          var num4 = Number(507);		//зп рутина 1 час 797 (грос)
+          var num5 = Number(441);		//зп рутина 1 час 797 
+          var num6 = Number(11);		//количество часов в смене
+          var num7 = Number(160);		//норма часов (месяц)
+          var num8 = Number(82);		//норма часов (covid месяц)
+          
+
+
+          var res1 = num1 * num6;
+          document.getElementById("result1").innerHTML = res1;
+          //количество отработанных часов часов
+
+
+          var res2 = res1 * num3;
+          document.getElementById("result2").innerHTML = res2;
+          //зп ковид до понижения зп
+
+
+          if ( res1 > 160 ) {var res3 = 82}  else {var res3 = res1 / 2 };
+          document.getElementById("result3").innerHTML = res3;
+          //количество ковидных часов
+
+
+          var res4 = res3 * num2;
+          document.getElementById("result4").innerHTML = res4;
+          //ковидные выплаты (грос)
+
+
+          var res5 = res3 * num3;
+          document.getElementById("result5").innerHTML = res5;
+          //ковидные выплаты
+
+
+          var res6 = res1 - res3;
+          document.getElementById("result6").innerHTML = res6;
+          //часы рутина
+
+
+          var res7 = res6 * num4;
+          document.getElementById("result7").innerHTML = res7;
+          //рутина выплаты (грос)
+
+
+          var res8 = res6 * num5;
+          document.getElementById("result8").innerHTML = res8;
+          //рутина выплаты
+
+
+          var res9 = res4 + res7;
+          document.getElementById("result9").innerHTML = res9;
+          //сумма (грос)
+
+
+          var res10 = res5 + res8;
+          document.getElementById("result10").innerHTML = res10;
+          //сумма
+
+
+          var res12 = res10*100/res2;
+          
+
+
+          var res11 = (res12 - 100) * -1;
+          document.getElementById("result11").innerHTML = res11;
+          //на какой процент упала зп        
+
+
+          }
+ </script>
+</head>
+<body></body>
+</html>
+
+
